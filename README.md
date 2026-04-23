@@ -16,6 +16,27 @@ A delivery-oriented writing skill for Chinese formal documents. It helps produce
 - 约束空话、套话、模板腔，优先具体事实与可执行表达
 - 交付前执行结构、语言、排版一致性检查
 
+## 安装 / Installation
+
+### 方式 A：本地目录安装（推荐）
+
+```bash
+cp -R ./human-write "${CODEX_HOME:-$HOME/.codex}/skills/"
+```
+
+### 方式 B：从 GitHub 克隆
+
+```bash
+git clone https://github.com/OscarLishe/human-write.git
+cp -R ./human-write "${CODEX_HOME:-$HOME/.codex}/skills/"
+```
+
+### 验证是否生效
+
+1. 新开一个 Codex 会话。
+2. 输入 `$human-write`。
+3. 若能被识别并按该 skill 输出，说明安装成功。
+
 ## 快速使用 / Quick Start
 
 ```text
