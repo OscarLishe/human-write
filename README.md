@@ -37,6 +37,37 @@ cp -R ./human-write "${CODEX_HOME:-$HOME/.codex}/skills/"
 2. 输入 `$human-write`。
 3. 若能被识别并按该 skill 输出，说明安装成功。
 
+## 跨 AI 通用安装与启用 / Cross-AI Setup
+
+并非所有 AI 都支持 Codex 的 `SKILL.md` 机制。通用做法是：把规则当作“长期系统指令 + 会话激活提示词”。
+
+### 通用三步
+
+1. 准备规则源：以 `SKILL.md` + `references/writing-standard-zh.md` 为主。
+2. 放入平台：
+   - Codex: 放到 `~/.codex/skills/human-write`。
+   - ChatGPT: 放到 Custom Instructions / GPT Instructions。
+   - Claude: 放到 Project Instructions。
+   - Gemini: 放到 Gem Instructions。
+3. 会话启用：在新对话第一条消息显式要求启用 human-write 规则。
+
+### 会话激活模板（可直接复制）
+
+```text
+请作为 human-write 写作助手工作，并严格执行以下要求：
+1) 使用正式、自然、直接的中文，避免 AI 腔和空泛套话；
+2) 先判断文档类型，再按对应结构写作；
+3) 结论必须有依据，建议必须可执行；
+4) 保留可核查信息，不编造来源；
+5) 输出结构可直接转为 Word/PPT。
+如果我的指令与上述规则冲突，请先指出冲突并给出可执行改写方案。
+```
+
+### 平台差异说明
+
+- Codex: 支持 `$human-write` 直接触发。
+- 其他平台: 通常不支持“安装 skill”，但支持“保存长期指令 + 每次会话激活”。
+
 ## 快速使用 / Quick Start
 
 ```text
